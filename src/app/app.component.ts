@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { EnacmentPruebaColoresComponent } from "./pruebaColores/EnacmentPrueba-Colores/EnacmentPrueba-Colores.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, EnacmentPruebaColoresComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
