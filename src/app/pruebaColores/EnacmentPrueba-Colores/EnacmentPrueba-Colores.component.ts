@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular'; // 👈 Importar módulo de Ionic
+import { IonicModule } from '@ionic/angular';
 import { NumeroData } from '../../interfaces/numeros';
+import { FirestoreService } from '../../services/firestore.service';
 
 
 
@@ -18,6 +19,8 @@ export class EnacmentPruebaColoresComponent {
 
   numeroIngresado: number | null = null;
 
+  private firebaseService = inject(FirestoreService)
+
 //Se almacena la informacion en arreglos y agregamos tipado de los numeros
   numeros: NumeroData[] = [];
   multiplos3: number[] = [];
@@ -32,7 +35,7 @@ export class EnacmentPruebaColoresComponent {
     { divisor: 7, color: 'text-blue-700' },
   ];
 
-  procesarNumero(): void {
+  async procesarNumero(): Promise<void> {
 
     //Salir de la funcion si no hay numero o es 0
     if (this.numeroIngresado === null || this.numeroIngresado <= 0) {
@@ -61,6 +64,23 @@ export class EnacmentPruebaColoresComponent {
     }
 
     this.procesado = true;
+
+    try {
+      await this.firebaseService.addData('numeros', {
+        numeroIngresado: this.numeroIngresado,
+        numeros: this.numeros,
+        multiplos3: this.multiplos3,
+        multiplos5: this.multiplos5,
+        multiplos7: this.multiplos7,
+        fecha: new Date().toISOString()
+      });
+      console.log("Datos enviados a Firestore correctamente.");
+    } catch (error) {
+      console.error("Error al enviar datos a Firestore:", error);
+    }
+
+
+
   }
 
   //limpia los datos para que no choquen con futuros datos ingresados

@@ -1,5 +1,4 @@
-<ion-app>
-
+<ion-app class="border border-gray-300 h-screen">
   <!-- Contenido principal -->
   <ion-content class="ion-padding bg-gradient-to-r from-blue-100 to-purple-100">
     <div class="flex items-center justify-center py-8">
@@ -13,7 +12,6 @@
           </label>
           <input
             type="number"
-
             id="numeroInput"
             [(ngModel)]="numeroIngresado"
             class="border border-gray-300 rounded-4xl p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -64,9 +62,8 @@
     </div>
   </ion-content>
 
-  <div class="absolute bottom-0 right-0 p-4">
+  <!-- Leyenda de GitHub fija en la esquina inferior derecha -->
+  <div class="fixed bottom-0 right-0 p-4">
     <span>Github: alo662</span>
   </div>
 </ion-app>
-
-
