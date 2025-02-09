@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { NumeroData } from '../../interfaces/numeros';
-import { FirestoreService } from '../../services/firestore.service';
+import { NumeroData } from '../interfaces/numeros';
+import { FirestoreService } from '../services/firestore.service';
 
 
 
@@ -54,7 +54,7 @@ export class EnacmentPruebaColoresComponent {
         number: i,
         color,
         divisores,
-        divisorPrincipal: divisores.length ? Math.min(...divisores) : undefined,
+        divisorPrincipal: divisores.length ? Math.min(...divisores) : null,
       });
 
       //se verifica que el numero sea mayor que 0 antes de ejecutar la funcion agregarMultiplo

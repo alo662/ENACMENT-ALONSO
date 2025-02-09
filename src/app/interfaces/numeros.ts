@@ -2,5 +2,5 @@ export interface NumeroData {
   number: number;
   color: string;
   divisores: number[];
-  divisorPrincipal?: number;
+  divisorPrincipal?: number | null;
 }
