@@ -26,7 +26,7 @@
         </div>
 
         <!-- Visualización de resultados -->
-        <div *ngIf="procesado" class="mt-8">
+        <ion-content *ngIf="procesado" class="mt-8">
           <h2 class="text-2xl font-semibold text-gray-800 mb-4">
             Números del 0 al {{ numeroIngresado }}:
           </h2>
@@ -53,14 +53,21 @@
               <p class="text-gray-700">{{ multiplos7.join(', ') }}</p>
             </div>
           </div>
-        </div>
+        </ion-content>
+
       </div>
     </div>
   </ion-content>
 
-  <div class="fixed bottom-0 right-0 p-4">
-    <span>Github: alo662</span>
-  </div>
+  <ion-footer class="footer-fixed">
+    <ion-toolbar>
+      <div class="footer-content">
+        <span>Github: alo662</span>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+
 
   <style>
 
@@ -83,6 +90,20 @@
       justify-content: center;
       margin-top: 1rem;
     }
+
+    .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
 
   </style>
 </ion-app>
