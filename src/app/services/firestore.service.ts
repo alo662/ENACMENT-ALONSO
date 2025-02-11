@@ -17,7 +17,7 @@ export class FirestoreService {
     }
   }
 
-  async addData(collectionName: string, data: any): Promise<void> {
+  async addDta(collectionName: string, data: any): Promise<void> {
     if (!this.firestore) {
       console.warn('Firestore no está disponible en el servidor.');
       return;

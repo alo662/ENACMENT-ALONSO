@@ -66,7 +66,7 @@ export class EnacmentPruebaColoresComponent {
     this.procesado = true;
 
     try {
-      await this.firebaseService.addData('numeros', {
+      await this.firebaseService.addDta('numeros', {
         numeroIngresado: this.numeroIngresado,
         numeros: this.numeros,
         multiplos3: this.multiplos3,
